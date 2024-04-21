@@ -56,9 +56,89 @@
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
-    <comp loc="(370,110)" name="ALUControlCircuit"/>
-    <comp loc="(370,370)" name="ImmGen"/>
-    <comp loc="(830,310)" name="DRAM16Mx32byte"/>
+    <comp lib="0" loc="(150,720)" name="Clock"/>
+    <comp lib="0" loc="(210,660)" name="Constant"/>
+    <comp lib="0" loc="(270,510)" name="Constant">
+      <a name="value" val="0x4"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(370,640)" name="Splitter">
+      <a name="bit1" val="0"/>
+      <a name="bit10" val="0"/>
+      <a name="bit11" val="0"/>
+      <a name="bit12" val="0"/>
+      <a name="bit13" val="0"/>
+      <a name="bit14" val="0"/>
+      <a name="bit15" val="0"/>
+      <a name="bit16" val="1"/>
+      <a name="bit17" val="1"/>
+      <a name="bit18" val="1"/>
+      <a name="bit19" val="1"/>
+      <a name="bit2" val="0"/>
+      <a name="bit20" val="1"/>
+      <a name="bit21" val="1"/>
+      <a name="bit22" val="1"/>
+      <a name="bit23" val="1"/>
+      <a name="bit24" val="1"/>
+      <a name="bit25" val="1"/>
+      <a name="bit26" val="1"/>
+      <a name="bit27" val="1"/>
+      <a name="bit28" val="1"/>
+      <a name="bit29" val="1"/>
+      <a name="bit3" val="0"/>
+      <a name="bit30" val="1"/>
+      <a name="bit31" val="1"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="0"/>
+      <a name="bit6" val="0"/>
+      <a name="bit7" val="0"/>
+      <a name="bit8" val="0"/>
+      <a name="bit9" val="0"/>
+      <a name="incoming" val="32"/>
+    </comp>
+    <comp lib="2" loc="(1420,330)" name="Multiplexer">
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="3" loc="(1240,350)" name="Adder">
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="3" loc="(410,500)" name="Adder">
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="4" loc="(280,610)" name="Register">
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp loc="(1190,1060)" name="ImmGen"/>
+    <comp loc="(1600,520)" name="thirty_two_bit_ALU"/>
+    <comp loc="(870,590)" name="register_file">
+      <a name="labelloc" val="south"/>
+    </comp>
+    <comp loc="(870,880)" name="ALUControlCircuit"/>
+    <wire from="(1240,340)" to="(1240,350)"/>
+    <wire from="(1240,340)" to="(1390,340)"/>
+    <wire from="(140,290)" to="(140,640)"/>
+    <wire from="(140,290)" to="(1470,290)"/>
+    <wire from="(140,640)" to="(280,640)"/>
+    <wire from="(1420,330)" to="(1470,330)"/>
+    <wire from="(1470,290)" to="(1470,330)"/>
+    <wire from="(150,720)" to="(210,720)"/>
+    <wire from="(210,660)" to="(280,660)"/>
+    <wire from="(210,680)" to="(210,720)"/>
+    <wire from="(210,680)" to="(280,680)"/>
+    <wire from="(210,720)" to="(210,770)"/>
+    <wire from="(210,770)" to="(650,770)"/>
+    <wire from="(270,510)" to="(370,510)"/>
+    <wire from="(340,640)" to="(350,640)"/>
+    <wire from="(350,340)" to="(1200,340)"/>
+    <wire from="(350,340)" to="(350,490)"/>
+    <wire from="(350,490)" to="(350,640)"/>
+    <wire from="(350,490)" to="(370,490)"/>
+    <wire from="(350,640)" to="(370,640)"/>
+    <wire from="(410,500)" to="(420,500)"/>
+    <wire from="(420,320)" to="(1390,320)"/>
+    <wire from="(420,320)" to="(420,500)"/>
+    <wire from="(650,690)" to="(650,770)"/>
   </circuit>
   <circuit name="ALUControlCircuit">
     <a name="appearance" val="logisim_evolution"/>
@@ -1234,9 +1314,9 @@
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
   </circuit>
-  <circuit name="BitRegister32">
+  <circuit name="register_file">
     <a name="appearance" val="logisim_evolution"/>
-    <a name="circuit" val="BitRegister32"/>
+    <a name="circuit" val="register_file"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
     <comp lib="0" loc="(1420,1180)" name="Pin">
@@ -1283,9 +1363,10 @@
       <a name="label" val="WData"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(670,3540)" name="Clock">
+    <comp lib="0" loc="(670,3540)" name="Pin">
+      <a name="appearance" val="NewPins"/>
       <a name="facing" val="north"/>
-      <a name="label" val="Clock_In"/>
+      <a name="label" val="C_in"/>
     </comp>
     <comp lib="2" loc="(1280,1180)" name="Multiplexer">
       <a name="disabled" val="Z"/>
@@ -1871,6 +1952,7 @@
     <wire from="(990,920)" to="(990,1280)"/>
   </circuit>
   <circuit name="DRAM64Mx32Byte">
+    <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="DRAM64Mx32Byte"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="clabelup" val="south"/>
@@ -1933,6 +2015,7 @@
     </comp>
     <comp lib="0" loc="(710,50)" name="Clock">
       <a name="facing" val="south"/>
+      <a name="labelloc" val="south"/>
     </comp>
     <comp lib="2" loc="(1430,740)" name="Multiplexer">
       <a name="select" val="2"/>
@@ -1952,21 +2035,25 @@
     <comp lib="4" loc="(800,1100)" name="RAM">
       <a name="addrWidth" val="24"/>
       <a name="appearance" val="logisim_evolution"/>
+      <a name="asyncread" val="true"/>
       <a name="labelvisible" val="true"/>
     </comp>
     <comp lib="4" loc="(800,200)" name="RAM">
       <a name="addrWidth" val="24"/>
       <a name="appearance" val="logisim_evolution"/>
+      <a name="asyncread" val="true"/>
       <a name="labelvisible" val="true"/>
     </comp>
     <comp lib="4" loc="(800,500)" name="RAM">
       <a name="addrWidth" val="24"/>
       <a name="appearance" val="logisim_evolution"/>
+      <a name="asyncread" val="true"/>
       <a name="labelvisible" val="true"/>
     </comp>
     <comp lib="4" loc="(800,800)" name="RAM">
       <a name="addrWidth" val="24"/>
       <a name="appearance" val="logisim_evolution"/>
+      <a name="asyncread" val="true"/>
       <a name="labelvisible" val="true"/>
     </comp>
     <wire from="(1040,1190)" to="(1370,1190)"/>
